@@ -22,7 +22,7 @@ class AcMain : BaseActivity(
 
     private fun pickSingle() {
         BottomSheetImagePicker.Builder(getString(R.string.file_provider))
-            .cameraButton(ButtonType.Button)
+            .cameraButton(ButtonType.None)
             .galleryButton(ButtonType.Button)
             .singleSelectTitle(R.string.pick_single)
             .peekHeight(R.dimen.peekHeight)
