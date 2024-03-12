@@ -51,3 +51,17 @@ dependencies {
     }
     annotationProcessor "com.github.bumptech.glide:compiler:$glide"
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.suiiide'
+                artifactId = 'bottomsheet-imagepicker'
+                version = '1.3'
+            }
+        }
+    }
+}
