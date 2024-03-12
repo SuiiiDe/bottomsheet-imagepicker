@@ -65,7 +65,8 @@ afterEvaluate {
         publications {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
-                from components.release
+ 
+                from components.findByName('release')
                 groupId = 'com.github.suiiide'
                 artifactId = 'bottomsheet-imagepicker'
                 version = '1.5'
