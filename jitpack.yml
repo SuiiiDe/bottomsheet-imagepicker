@@ -5,5 +5,5 @@ before_install:
   - ./scripts/prepareJitpackEnvironment.sh
 install:
   - FILE="-Dfile=library-debug.aar" #com-atifqamar-customtoast.aar 
-  - mvn install:install-file $FILE -DgroupId=com.github.suiiide -DartifactId=bottomsheet-imagepicker -Dversion=1.6.5 -Dpackaging=aar -DgeneratePom=true
+  - mvn install:install-file $FILE -DgroupId=com.github.suiiide -DartifactId=bottomsheet-imagepicker -Dversion=1.6.6 -Dpackaging=aar -DgeneratePom=true
                                            
