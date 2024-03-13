@@ -1,4 +1,5 @@
-[![Release](https://jitpack.io/v/kroegerama/bottomsheet-imagepicker.svg)](https://jitpack.io/#kroegerama/bottomsheet-imagepicker)
+[![Release](https://jitpack.io/v/suiiide/bottomsheet-imagepicker.svg)](https://jitpack.io/#suiiide/bottomsheet-imagepicker)
+
 [![Build Status](https://travis-ci.org/kroegerama/bottomsheet-imagepicker.svg?branch=master)](https://travis-ci.org/kroegerama/bottomsheet-imagepicker)
 
 # BottomSheet Image Picker for Android
