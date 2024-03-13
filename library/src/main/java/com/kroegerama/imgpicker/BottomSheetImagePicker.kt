@@ -1,4 +1,4 @@
-package com.kroegerama.imgpicker
+package com.suiiide.imgpicker
 
 import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK

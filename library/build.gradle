@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-android-extensions'
     id 'maven-publish'
 }
+apply from: "$rootDir/scripts/maven-publish-pomfile-generation.gradle"
 
 group = 'com.github.suiiide'
 version = '1.5'
@@ -20,8 +21,6 @@ android {
     defaultConfig {
         minSdkVersion 17
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.1.2"
     }
     compileOptions {
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -36,6 +35,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+//    libraryVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            def outputFile = output.outputFile
+//            if (outputFile != null && outputFile.name.endsWith('.aar')) {
+//                def fileName = getArtifactFileName()
+//                output.outputFile = new File(outputFile.parent, fileName)
+//            }
+//        }
+//    }
+
 }
 
 ext {
@@ -60,17 +69,32 @@ dependencies {
     annotationProcessor "com.github.bumptech.glide:compiler:$glide"
 }
 
-afterEvaluate {
+
     publishing {
         publications {
             // Creates a Maven publication called "release".
-            release(MavenPublication) {
- 
+            maven(MavenPublication) {
+
                 from components.findByName('release')
-                groupId = 'com.github.suiiide'
-                artifactId = 'bottomsheet-imagepicker'
-                version = '1.5'
+                groupId = GROUP
+                artifactId = POM_ARTIFACT_ID
+                version = VERSION_NAME
+                pom.withXml {
+                    def dependenciesNode = asNode().appendNode('dependencies')
+
+                    //Iterate over the compile dependencies (we don't want the test ones), adding a <dependency> node for each
+                    configurations.implementation.allDependencies.each {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', it.group)
+                        dependencyNode.appendNode('artifactId', it.name)
+                        dependencyNode.appendNode('version', it.version)
+                    }
+                }
+
+
             }
         }
     }
+def getArtifactFileName() {
+    return "${POM_ARTIFACT_ID}-${VERSION_NAME}.aar"
 }

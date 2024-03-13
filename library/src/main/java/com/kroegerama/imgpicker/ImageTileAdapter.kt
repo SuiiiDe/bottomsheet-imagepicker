@@ -1,4 +1,4 @@
-package com.kroegerama.imgpicker
+package com.suiiide.imgpicker
 
 import android.net.Uri
 import android.view.LayoutInflater

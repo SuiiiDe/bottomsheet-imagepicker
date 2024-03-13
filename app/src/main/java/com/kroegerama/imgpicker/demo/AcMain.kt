@@ -4,8 +4,8 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.kroegerama.imgpicker.BottomSheetImagePicker
-import com.kroegerama.imgpicker.ButtonType
+import com.suiiide.imgpicker.BottomSheetImagePicker
+import com.suiiide.imgpicker.ButtonType
 import com.kroegerama.kaiteki.baseui.BaseActivity
 import com.kroegerama.kaiteki.toast
 import kotlinx.android.synthetic.main.ac_main.*
